@@ -1,93 +1,104 @@
-import java.util.Scanner;
-
-class shoppingcart
+import java.util.*;
+class shoppingCart
 {
-	static String store[][];
-	static String cart[][];
 	public static Scanner scanner=new Scanner(System.in);
-	public static void main(String args[])
+	public static shoppingStore store=new shoppingStore();
+	private static ArrayList<String> cart;
+	private static int choice;
+	private static int quantity;
+	private shoppingCart()
 	{
-		openStore();
+		cart=new ArrayList<>();
 	}
-	public static void openStore()
+	public static void main(String[] args)
 	{
-		int default_capacity=10;
-		cart=new String[default_capacity][2];// 2-name,quantity
-		// Considering the store has a predefined items only
-		store=new String[][]{{"Pepsi","10","35"},{"Maggie","20","15"},{"Lays","10","10"},{"Cake","10","20"}};
-		printStock();
-		printUsermenu();
+		new shoppingCart();
+		printMenu();
 	}
-	public static void printStock()
+	public static void printMenu()
 	{
-		System.out.println("STOCK AVAILABLE\nNAME\t\tRATE\t\tQUANTITY");
-		for(int a=0;a<store.length;a++)
-		{
-			System.out.println(store[a][0]+"\t\t"+store[a][1]+"\t\t"+store[a][2]);
-		}
-	}
-	public static void printUsermenu()
-	{
-		System.out.println("1-Add items to cart");
-		System.out.println("2-Remove items from cart");
-		System.out.println("3-Checkout");
-		switch(scanner.nextInt())
+		Collections.sort(cart);
+		System.out.println("1 : Add Item\n2 : Remove Item\n3 : Update Item\n4 : View Cart\n5 : Checkout\n6 : Exit");
+		int choice=scanner.nextInt();
+		switch(choice)
 		{
 		case 1:addItem();break;
 		case 2:removeItem();break;
-		case 3:checkOut();break;
-		default:System.out.println("Invalid option");printUsermenu();
+		case 3:updateItem();break;
+		case 4:viewCart();break;
+		case 5:checkOut();break;
+		case 6:System.exit(-1);break;
 		}
-		
+	
 	}
-	public static void checkOut() {
-		// TODO Auto-generated method stub
-		
-	}
-	public static void addItem()
+	private static void viewCart()
 	{
-		int quantity;
-		System.out.println("Select from items below to add");
-		for(int a=1;a<=store.length;a++)
+		Collections.sort(cart);
+		int temp=0;
+		String working;
+		int lastindex;
+		while(temp<cart.size()-1)
 		{
-			System.out.println(a+" "+store[a-1][0]);
-		}
-		int choice=scanner.nextInt();
-		if(choice>0&choice<=store.length)
-		{
-			System.out.println("Enter the quantity for "+store[choice][0]);
-			quantity=scanner.nextInt();
-			int position_of_item=-1;
-			int position_of_last_item=-1;
-			for(int a=0;a<cart.length;a++)
-			{
-				if(store[choice-1][0].equals(cart[a][0]))
-				{
-					position_of_item=a;
-					break;
-				}
-				else
-				{
-					if(cart[a][0].isEmpty())
-					{
-						position_of_last_item=a;
-					}
-					break;
-				}
-			}
-			// Insert into cart
-			if(position_of_item!=-1)
-			{
-				cart[position_of_item][1]+=quantity;
-			}
-			else if(position_of_last_item!=-1)
-			{
-				
-			}
+			working=cart.get(temp);
+			lastindex=cart.lastIndexOf(working);
+			temp=lastindex+1;
 		}
 	}
-	public static void removeItem()
+	private static void updateItem()
 	{
+		printCart();
+		getDetails("Update");
+		cart.remove(store.getCode(choice));
+		printMenu();
+	}
+	private static void printCart()
+	{
+		int temp=0;
+		while(temp<cart.size()-1)
+		{
+			System.out.println(cart.get(temp));
+			temp=cart.lastIndexOf(cart.get(temp+1));
+		}
+	}
+	private static void removeItem()
+	{
+		printCart();
+		getDetails("remove");
+		for(int temp=1;temp<=quantity;temp++)
+		{
+			cart.remove(store.getCode(choice));
+			printMenu();
+		}
+	}
+	private static void addItem()
+	{
+		store.getStock();
+		getDetails("add");
+		String code=store.getCode(choice);
+		int storequantity=store.getQuantity(choice);
+		int cartquantity=cart.lastIndexOf(code)-cart.indexOf(code);
+		if(storequantity>=cartquantity+quantity)
+		{
+			for(int temp=1;temp<=quantity;temp++)
+			{
+				cart.add(store.getCode(choice));
+			}
+		}
+		else
+		{
+			System.out.println("Invalid quantity : Maximum quantity can be = "+store.getQuantity(choice));
+		}
+		printMenu();
+	}
+	private static void checkOut() {
+		// UnderDevelopment
 		
+	}
+	public static void getDetails(String operation)
+	{
+		System.out.println("Enter the item's serial number to"+operation+"\t");
+		choice=scanner.nextInt();
+		System.out.println("Enter the quantity to "+operation+"\t");
+		quantity=scanner.nextInt();
 	}
 }
