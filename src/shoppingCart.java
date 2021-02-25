@@ -25,7 +25,7 @@ class shoppingCart
 		case 1:addItem();break;
 		case 2:removeItem();break;
 		case 3:updateItem();break;
-		case 4:viewCart();break;
+		case 4:viewCart();printMenu();break;
 		case 5:checkOut();break;
 		case 6:System.exit(-1);break;
 		}
@@ -41,28 +41,20 @@ class shoppingCart
 		{
 			working=cart.get(temp);
 			lastindex=cart.lastIndexOf(working);
+			System.out.println(working+" --- "+(lastindex-temp+1));
 			temp=lastindex+1;
 		}
 	}
 	private static void updateItem()
 	{
-		printCart();
+		viewCart();
 		getDetails("Update");
 		cart.remove(store.getCode(choice));
 		printMenu();
 	}
-	private static void printCart()
-	{
-		int temp=0;
-		while(temp<cart.size()-1)
-		{
-			System.out.println(cart.get(temp));
-			temp=cart.lastIndexOf(cart.get(temp+1));
-		}
-	}
 	private static void removeItem()
 	{
-		printCart();
+		viewCart();
 		getDetails("remove");
 		for(int temp=1;temp<=quantity;temp++)
 		{
@@ -76,7 +68,7 @@ class shoppingCart
 		getDetails("add");
 		String code=store.getCode(choice);
 		int storequantity=store.getQuantity(choice);
-		int cartquantity=cart.lastIndexOf(code)-cart.indexOf(code);
+		int cartquantity=Collections.frequency(cart, code);
 		if(storequantity>=cartquantity+quantity)
 		{
 			for(int temp=1;temp<=quantity;temp++)
@@ -96,7 +88,7 @@ class shoppingCart
 	}
 	public static void getDetails(String operation)
 	{
-		System.out.println("Enter the item's serial number to"+operation+"\t");
+		System.out.println("Enter the item's serial number to "+operation+"\t");
 		choice=scanner.nextInt();
 		System.out.println("Enter the quantity to "+operation+"\t");
 		quantity=scanner.nextInt();
