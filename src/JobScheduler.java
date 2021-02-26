@@ -119,9 +119,9 @@ public class JobScheduler
 				// waiting time = completion time(previous process) - arrival time
 				// waiting time will only be present if other process is executing at arrival of process
 				if((n==0?0:process[n-1][3])>process[n][0])
-					{
-						process[n][2]=Math.abs((n==0?0:process[n-1][3])-process[n][0]);
-					}
+				{
+					process[n][2]=Math.abs((n==0?0:process[n-1][3])-process[n][0]);
+				}
 				// Maximum waiting time computation
 				max_waiting = process[n][2]>max_waiting?process[n][2]:max_waiting;
 				total_waiting+=process[n][2];
