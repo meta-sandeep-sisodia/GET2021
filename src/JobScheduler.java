@@ -155,7 +155,14 @@ public class JobScheduler
 			}
 		}
 		System.out.println("\nMaximum waiting time = "+(max_waiting));
-		System.out.println("Average waiting time = "+(total_waiting/process_count));
+		try
+		{
+			System.out.println("Average waiting time = "+(total_waiting/process_count));
+		}
+		catch(ArithmeticException e)
+		{
+			System.out.println("Average waiting time = "+0);
+		}
 	}
 	
 }
