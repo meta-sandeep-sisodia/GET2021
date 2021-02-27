@@ -21,21 +21,28 @@ Also assume that these methods may throw ArithmeticException.
 public class Area
 {
 	static Scanner scanner = new Scanner(System.in);
-	static String choices[] = new String[]{"Triangle","Rectrangle","Square","Circle","Exit"};
-	static int choice=0;
-	static double result;
+	private static String choices[] = new String[]{"Triangle","Rectrangle","Square","Circle","Exit"};
+	private static int choice=0;
+	private static double result;
 	public static void main(String args[])
 	{
 		new Area();
 	}
 	Area()
 	{
+		/*
+		 * Prints the available options throigh helper function
+		 * Ivokes the operation functions as per choice shown
+		 */
 		printMenu();
 		navigate();
 	}
 	
 	private static void printMenu()
 	{
+		/*
+		 * Prints the operations available fot user to perform
+		 */
 		String message="Calculate area of ";
 		System.out.println(message);
 		for(String value:choices)
@@ -46,6 +53,10 @@ public class Area
 	}
 	private static void navigate()
 	{
+		/*
+		 * Takes input from golbal variable choice and invokes the function of choice
+		 * Outputs the area of choice in decimal form with percision of 2 decimal points
+		 */
 		switch(choice)
 		{
 			case 1: result=areaOfTriangle(getInput("Base"),getInput("Height"));break;
@@ -59,6 +70,11 @@ public class Area
 	}
 	private static double getInput(String str)
 	{
+		/*
+		 * Takes the input from the user
+		 * Returns double value
+		 * Discard other intergral and string values
+		 */
 		double input=0;
 		System.out.println("Enter the  : "+str+" of "+choices[choice-1]);
 		try
@@ -83,6 +99,12 @@ public class Area
 	}
 	private static int getChoice()
 	{
+		/*
+		 * Takes the input from the user
+		 * In range 1 to 5
+		 * Returns integer value
+		 * Discard other floating point and string values
+		 */
 		System.out.println("Enter your choice : ");
 		try
 		{
@@ -107,18 +129,30 @@ public class Area
 	}
 	public static double areaOfTriangle(double width, double height)
 	{
+		/*
+		 * return double 1/2 X width X height
+		 */
 		return 0.5*width*height;
 	}
 	public static double areaOfRectangle(double width, double height)
 	{
+		/*
+		 * return double width x height
+		 */
 		return width*height;
 	}
 	public static double areaOfSquare(double width)
 	{
+		/*
+		 * return double width x width
+		 */
 		return areaOfRectangle(width,width);
 	}
 	public static double areaoOfCircle(double radius)
 	{
+		/*
+		 * Returns the double value pie x radius square
+		 */
 		return Math.PI*radius*radius;
 	}
 }
