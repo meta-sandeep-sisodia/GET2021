@@ -2,7 +2,7 @@
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-	Design a class Marksheet, which reads in grades of n no of students. Assume n as a positive integer and grades will be between 0 and 100 both inclusive. It should support following methods 
+	Design a class MarkSheet, which reads in grades of n no of students. Assume n as a positive integer and grades will be between 0 and 100 both inclusive. It should support following methods 
 	Return average of all grades. 
 	Return maximum of all grades.
 	Return minimum of all grades.
@@ -17,7 +17,7 @@
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
-public class Marksheet
+public class MarkSheet
 {
 	/*
 	 * grades array stores grades inputed from user
@@ -34,14 +34,14 @@ public class Marksheet
 		 * Invokes the functionality through constructor
 		 * calls the unparameterized constructor
 		 */
-		new Marksheet();	
+		new MarkSheet();	
 	}
 	
-	Marksheet(float value[])
+	MarkSheet(float value[])
 	{
 		/*
 		 * Default parameterized constructor
-		 * Used when grades value is passed by program accessing the Marksheet class
+		 * Used when grades value is passed by program accessing the MarkSheet class
 		 */
 		if(valudateinput(value)==true)
 		{
@@ -55,7 +55,7 @@ public class Marksheet
 		}
 	}
 		
-	Marksheet()
+	MarkSheet()
 	{
 		/*
 		 * Default unparameterized constructor

@@ -124,7 +124,7 @@ public class StringManipulate
 		{
 			if(string.charAt(loop_var)==(int)' ')
 			{
-				start=end+1;
+				start=end;
 				end=loop_var;
 				if(max_end-max_start<=end-start)
 				{
