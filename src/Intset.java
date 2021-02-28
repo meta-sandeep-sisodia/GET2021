@@ -69,40 +69,7 @@ public final class IntSet
 		}
 		return false;
 	}
-	/*
-	private void driver()
-	{
-		
-	}
-	private void printMenu()
-	{
-		
-	}
-	private void getInput()
-	{
-		int input=0;
-		System.out.println("Enter the value of element in set : "+str+" of ");
-		try
-		{
-			input=scanner..nextInt();
-			if(isMember())
-			{
-				return input;
-			}
-			else
-			{
-				input=getInput(str);
-			}
-		}
-		catch(InputMismatchException e)
-		{
-			System.out.println("Please enter Double value");
-			scanner.nextLine();
-			input=getInput(str);
-		}
-		return input;
-	}
-	*/
+	
 	public boolean isMember(int x)
 	{
 		for(int value:set)
