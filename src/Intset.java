@@ -1,7 +1,5 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.InputMismatchException;
 
 /*
 	Implement the immutable class intSet using an array to represent a set of integers in the range 1-1000.
@@ -22,31 +20,22 @@ import java.util.InputMismatchException;
 
 public final class IntSet 
 {
-	private int set[];
+	private final int set[];
 	public static void main(String[] args)
 	{
-		int arr1[]=new int[]{2,4,6,8,10};
-		int arr2[]=new int[]{5,6,7,8,9};
-		IntSet s1=new IntSet(arr1);
-		IntSet s2=new IntSet(arr2);
-		//System.out.println("A is member of B ="+s2.isMember(6));//Working
-		//System.out.println("A is subset of B ="+s1.isSubSet(s2));//Working
-		//System.out.println("A is Proper subset of B ="+s1.isProperSubSet(s2));//Working
-		//System.out.println("Size of A = "+s1.size());// Working
-		System.out.println("Compliment of A = ");printSet(s1.getComplement());
-		//System.out.print("\nUnion of A and B = ");printSet(s1.union(s1,s2));
+		
 	}
 	
 	IntSet(int[] arr)
 	{
 		if(validateInput(arr)==true)
 		{
-			set=new int[arr.length];
-			set=arr;
+			this.set=arr;
 		}
 		else
 		{
-			System.out.println("Invalid value for a set");
+			System.out.println("Invalid value for a set\n-> Duplicate item maybe present\n\tor\n-> Element out of Universal set are present\n   Universal set(1-1000)");
+			this.set=null;
 			System.exit(-1);
 		}
 	}
@@ -126,7 +115,7 @@ public final class IntSet
 		return false;
 	}
 	
-	public static void printSet(IntSet s)
+	public void printSet(IntSet s)
 	{
 		for(int value:s.set)
 		{
