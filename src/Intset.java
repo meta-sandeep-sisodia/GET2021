@@ -23,8 +23,21 @@ public final class IntSet
 	private final int set[];
 	public static void main(String[] args)
 	{
-		
+		getHelp();
 	}
+	
+	
+	public static void getHelp()
+	{
+		System.out.println("IntSet Operation Avaliable");
+		System.out.println("1. IntSet s = s.isMember(int x) - check whether x is a member of the set and return a boolean value");
+		System.out.println("2. IntSet s = s.size() - return the size of the set");
+		System.out.println("3. IntSet s = s.isSubSet(intSet s2) - check whether s is a subset of the set");
+		System.out.println("4. IntSet s = s.getComplement()  - return the complement set, 1..1000 is the universal set");
+		System.out.println("5. IntSet.union(intSet s1, intSet s2) - (Static method), return the union of s1 and s2");
+		System.out.println("6. IntSet.printSet(IntSet s) - print the set");
+	}
+	
 	
 	IntSet(int[] arr)
 	{
@@ -82,7 +95,7 @@ public final class IntSet
 		return false;
 	}
 	
-	public void printSet(IntSet s)
+	public static void printSet(IntSet s)
 	{
 		for(int value:s.set)
 		{
@@ -171,14 +184,14 @@ public final class IntSet
 		return new IntSet(toArray(working_set));
 	}
 
-	public IntSet union(IntSet s1, IntSet s2)
+	public static IntSet union(IntSet s1, IntSet s2)
 	{
 		ArrayList <Integer> result=new ArrayList<Integer>();
 		result=merge(s1.set,result);
 		result=merge(s2.set,result);
 		return new IntSet(toArray(result));
 	}
-	private ArrayList<Integer> merge(int to_merge[],ArrayList<Integer> merge_into)
+	private static ArrayList<Integer> merge(int to_merge[],ArrayList<Integer> merge_into)
 	{
 		int set_length=to_merge.length;
 		for(int loop_var=0;loop_var<set_length;loop_var++)
@@ -199,7 +212,7 @@ public final class IntSet
 		}
 		return merge_into;
 	}
-	private int[] toArray(ArrayList<Integer> input)
+	private static int[] toArray(ArrayList<Integer> input)
 	{
 		Collections.sort(input);
 		int temp=0;
