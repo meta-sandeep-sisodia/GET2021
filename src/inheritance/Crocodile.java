@@ -1,5 +1,6 @@
 package inheritance;
 
-public class Crocodile {
-
+public class Crocodile extends R
+{
+	
 }

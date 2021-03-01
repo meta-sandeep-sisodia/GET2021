@@ -129,7 +129,7 @@ public class Poly
 		for(int loop_var=0;loop_var<equation.length;loop_var++)
 		{	
 			//System.out.println(equation[loop_var][0]+", "+equation[loop_var][1]);
-			if(equation[loop_var][0]==0||equation[loop_var][1]==0)
+			if(equation[loop_var][0]==0)
 			{
 				return false;
 			}

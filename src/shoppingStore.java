@@ -1,34 +1,18 @@
-public class shoppingStore
+public class ShoppingStore
 {
-	private static String store[][];
-	public shoppingStore()
+	static String store[][];
+	public ShoppingStore()
 	{
 		store=new String[][]{
-				{"PEP1","pepsi","35","10"},
-				{"CAK1","Cake","20","20"},
-				{"MAG1","Maggie","15","10"},
-				{"LAY1","Lays small","10","10"},
-				{"LAY2","Lays big","30","10"}
+				{"101","pepsi","35","10"},
+				{"124","Cake","20","20"},
+				{"514","Maggie","15","10"},
+				{"220","Lays small","10","10"},
+				{"221","Lays big","30","10"}
 				};
 		System.out.println("---------------Welcome to the Store------------");
 	}
-	public String getCode(int index)
-	{
-	return store[index-1][0];	
-	}
-	public String getName(int index)
-	{
-	return store[index-1][1];	
-	}
-	public int getRate(int index)
-	{
-		return Integer.parseInt(store[index-1][2]);
-	}
-	public int getQuantity(int index)
-	{
-		return Integer.parseInt(store[index-1][3]);
-	}
-	public void getStock()
+	public static void getStock()
 	{
 		System.out.printf("%-7s%-15s%-15s%10s%10s\n","SR.No","ITEM CODE","ITEM NAME","RATE","QUANTITY");
 		printBreak();
@@ -38,7 +22,22 @@ public class shoppingStore
 		}
 		printBreak();
 	}
-	public void printBreak()
+	public static double getRate(int index)
+	{
+		return Double.parseDouble(store[index][2]);
+	}
+	public static int getQuantity(int index)
+	{
+		return Integer.parseInt(store[index][3]);
+	}
+	public static void removeItem(int index,int quantity)
+	{
+		if(getQuantity(index)-quantity>=0)
+		{
+			store[index][3]=String.valueOf(getQuantity(index)-quantity);
+		}
+	}
+	public static void printBreak()
 	{
 		System.out.println("-------------------------------------------------------------");
 	}
