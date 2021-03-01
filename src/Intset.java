@@ -21,6 +21,8 @@ import java.util.Collections;
 public final class IntSet 
 {
 	private final int set[];
+	int  range=1000; //setting range for universal set;
+	private ArrayList <Integer> universal_set=new ArrayList<Integer>();
 	public static void main(String[] args)
 	{
 		getHelp();
@@ -36,6 +38,7 @@ public final class IntSet
 		System.out.println("4. IntSet s = s.getComplement()  - return the complement set, 1..1000 is the universal set");
 		System.out.println("5. IntSet.union(intSet s1, intSet s2) - (Static method), return the union of s1 and s2");
 		System.out.println("6. IntSet.printSet(IntSet s) - print the set");
+		System.out.println("7. IntSet.setUniversalSet(int range) - set the range for universal set 1-range");
 	}
 	
 	
@@ -54,13 +57,13 @@ public final class IntSet
 	}
 	public boolean validateInput(int[] arr)
 	{
-		if(arr.length>1000)
+		if(arr.length>range)
 		{
 			return false;
 		}
 		for(int value:arr)
 		{
-			if(value>1000||value<1)
+			if(value>range||value<1)
 			{
 				return false;
 			}
@@ -138,23 +141,25 @@ public final class IntSet
 		return true;
 	}
 
+	public void setUniversalSet(int range)
+	{
+		this.range=range;
+	}
 	public IntSet getComplement()
 	{
-		int loop_var=0, range=20;
-		ArrayList <Integer> working_set=new ArrayList<Integer>();
-		
+		int loop_var=0;
 		for(loop_var=1;loop_var<=range;loop_var++)
 		{
-			working_set.add(loop_var);
+			universal_set.add(loop_var);
 		}
 		for(loop_var=0;loop_var<set.length;loop_var++)
 		{
-			if(working_set.contains(set[loop_var]))
+			if(universal_set.contains(set[loop_var]))
 			{
-				working_set.remove(working_set.indexOf(set[loop_var]));
+				universal_set.remove(universal_set.indexOf(set[loop_var]));
 			}
 		}
-		return new IntSet(toArray(working_set));
+		return new IntSet(toArray(universal_set));
 	}
 
 	public static IntSet union(IntSet s1, IntSet s2)
