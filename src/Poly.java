@@ -184,10 +184,10 @@ public class Poly
 	
 	
 	/**
-	 * @param p1
-	 * @param p2
-	 * @param variable
-	 * @return
+	 * @param p1 object reference polynomial 1
+	 * @param p2 object reference polynomial 2
+	 * @param variable variable in polynomial
+	 * @return addition of polynomial 1 and polynomial 2
 	 */
 	public static float addPoly(Poly p1, Poly p2, float variable)
 	{
@@ -198,7 +198,7 @@ public class Poly
 	/**
 	 * @param p1
 	 * @param p2
-	 * @return
+	 * @return 
 	 */
 	public static Poly addPoly(Poly p1, Poly p2)
 	{
@@ -210,10 +210,10 @@ public class Poly
 	
 	
 	/**
-	 * @param p1
-	 * @param p2
-	 * @param variable
-	 * @return
+	 * @param p1 object reference polynomial 1
+	 * @param p2 object reference polynomial 2
+	 * @param variable value of polynomial for which it need to be evaluated and multiplied
+	 * @return multiplication of polynomial 1 and polynomial 2
 	 */
 	public static float multiplyPoly(Poly p1, Poly p2, float variable)
 	{
@@ -222,9 +222,9 @@ public class Poly
 	
 	
 	/**
-	 * @param p1
-	 * @param p2
-	 * @return
+	 * @param p1 object reference polynomial 1
+	 * @param p2 object reference polynomial 2
+	 * @return object reference to result
 	 */
 	public static Poly multiplyPoly(Poly p1, Poly p2)
 	{
@@ -246,9 +246,9 @@ public class Poly
 	
 	
 	/**
-	 * @param result
-	 * @param poly
-	 * @return
+	 * @param result array in which condensing is done
+	 * @param poly object reference of array which need to be condensed
+	 * @return result after condensing/merging poly equation to it
 	 */
 	private static int[][] condensePoly(int result[][],Poly poly)
 	{
@@ -271,8 +271,8 @@ public class Poly
 	
 	
 	/**
-	 * @param array
-	 * @return
+	 * @param array which needs to be trimmed
+	 * @return trimmed array
 	 */
 	private static int[][] trimArray(int array[][])
 	{

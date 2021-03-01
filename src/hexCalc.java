@@ -58,11 +58,11 @@ public class HexCalc
 		}
 		else if(choice==8)
 		{
-			System.out.println("Hexadecimal value : "+toHexa(Integer.parseInt(getInput("Decimal Value"))));
+			System.out.println("Hexadecimal value : "+toHexaDecimala(Integer.parseInt(getInput("Decimal Value"))));
 		}
 		else if(choice==9)
 		{
-			System.out.println("Decimal value : "+toDec(getInput("Decimal Value").toUpperCase()));
+			System.out.println("Decimal value : "+toDecimal(getInput("Decimal Value").toUpperCase()));
 		}
 	}
 	private static int getChoice()
@@ -149,10 +149,10 @@ public class HexCalc
 	{
 		/*
 		 * Takes two Hexadecimal String as input and return first plus second in Hexadecimal notation
-		 * make use of helper functions toDec to convert it into base 10
+		 * make use of helper functions toDecimal to convert it into base 10
 		 * then perform the add operation by helper function add 
 		 */
-		return toHexa(add(toDec(one),toDec(two)));
+		return toHexaDecimala(add(toDecimal(one),toDecimal(two)));
 	}
 	public static int add(int a,int b)
 	{
@@ -166,10 +166,10 @@ public class HexCalc
 		/*
 		 * Takes two Hexadecimal String as input
 		 * Return Absolute value in Hexadecimal notation
-		 * make use of helper functions toDec to convert it into base 10
+		 * make use of helper functions toDecimal to convert it into base 10
 		 * then perform the subtract operation by helper function subtract 
 		 */
-		return toHexa(Math.abs(subtract(toDec(one),toDec(two))));
+		return toHexaDecimala(Math.abs(subtract(toDecimal(one),toDecimal(two))));
 	}
 	public static int subtract(int a,int b)
 	{
@@ -182,10 +182,10 @@ public class HexCalc
 	{
 		/*
 		 * Takes two Hexadecimal String as input and return first multiply by second in Hexadecimal notation
-		 * make use of helper functions toDec to convert it into base 10
+		 * make use of helper functions toDecimal to convert it into base 10
 		 * then perform the multiply operation by helper function multiply 
 		 */
-		return toHexa(multiply(toDec(one),toDec(two)));
+		return toHexaDecimala(multiply(toDecimal(one),toDecimal(two)));
 	}
 	public static int multiply(int a,int b)
 	{
@@ -198,10 +198,10 @@ public class HexCalc
 	{
 		/*
 		 * Takes two Hexadecimal String as input and return first divide by second in Hexadecimal notation
-		 * make use of helper functions toDec to convert it into base 10
+		 * make use of helper functions toDecimal to convert it into base 10
 		 * then perform the divide operation by helper function divide 
 		 */
-		return toHexa(divide(toDec(one),toDec(two)));
+		return toHexaDecimala(divide(toDecimal(one),toDecimal(two)));
 	}
 	public static int divide(int a,int b)
 	{
@@ -218,7 +218,7 @@ public class HexCalc
 			return 0;
 		}
 	}
-	public static int toDec(String str)
+	public static int toDecimal(String str)
 	{
 		/*
 		 * This function takes input as hexadecimal value in String Format and return the Integer with base 10
@@ -234,7 +234,7 @@ public class HexCalc
 		}
 		return result;
 	}
-	public static String toHexa(int num)
+	public static String toHexaDecimala(int num)
 	{
 		/*
 		 * This function takes input as Integer with base 10 and return the hexadecimal value in String Format
