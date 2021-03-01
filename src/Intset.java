@@ -112,33 +112,6 @@ public final class IntSet
 	{
 		int set_length=this.set.length;
 		int subset_length=s.set.length;
-		int count=0;
-		if(subset_length>set_length)
-		{
-			return false;
-		}
-		else
-		{
-			for(int loop_var=0;loop_var<subset_length;loop_var++)
-			{
-				int to_search=s.set[loop_var];
-				for(int inner_loop_var=0;inner_loop_var<set_length;inner_loop_var++)
-				{
-					
-					if(to_search==this.set[inner_loop_var])
-					{
-						count++;
-					}
-				}
-			}
-		}
-		return count>0?true:false;
-	}
-	
-	public boolean isProperSubSet(IntSet s)
-	{
-		int set_length=this.set.length;
-		int subset_length=s.set.length;
 		if(subset_length>set_length)
 		{
 			return false;
