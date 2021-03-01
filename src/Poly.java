@@ -8,19 +8,13 @@
 	3- addPoly(Poly p1, Poly p2) - return the sum of the polynomials p1 and p2
 	4- multiplyPoly(Poly p1, Poly p2) - return the product of polynomials p1 and p2
 	
-	You may use private helper methods. addPoly() and multiplyPoly() can make assumptions about size of the resulting polynomial to decide about the size of the array to be created.
- 
-#		         Exponent/Degree							#
-# 		   			    |									#
-#       coefficient- cx^e +constant			@Polynomial		#
-# 		 			  |										#
-# 				 variable									#
-
+	You may use private helper methods. addPoly() and multiplyPoly()
+	can make assumptions about size of the resulting polynomial to decide about the size of the array to be created.
  */
 
 /**
  * @author sandeep.sisodia_meta
- *
+ * // Commenting in draft
  */
 public class Poly
 {
