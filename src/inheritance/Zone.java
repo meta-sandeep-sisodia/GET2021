@@ -1,5 +1,6 @@
 package inheritance;
 
-public class Zone {
+public class Zone
+{
 
 }

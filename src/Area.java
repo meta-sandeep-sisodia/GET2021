@@ -31,8 +31,8 @@ public class Area
 	Area()
 	{
 		/*
-		 * Prints the available options throigh helper function
-		 * Ivokes the operation functions as per choice shown
+		 * Prints the available options through helper function
+		 * Invokes the operation functions as per choice shown
 		 */
 		printMenu();
 		navigate();
@@ -41,7 +41,7 @@ public class Area
 	private static void printMenu()
 	{
 		/*
-		 * Prints the operations available fot user to perform
+		 * Prints the operations available for user to perform
 		 */
 		String message="Calculate area of ";
 		System.out.println(message);
