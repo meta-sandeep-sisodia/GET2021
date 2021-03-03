@@ -1,5 +1,3 @@
-package Recursion;
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -22,9 +20,13 @@ public class Search {
 		}
 		System.out.println("Enter the element to search");
 		int to_search=getInput();
-		System.out.println("Index of "+to_search+" = "+Search.binarySearch(arr,0,arr.length,to_search)); //It will only work for sorted array
-		System.out.println("Index of "+to_search+" = "+Search.linearSearch(arr, to_search));
+		Search search=new Search();
+		System.out.println("Index of "+to_search+" = "+search.binarySearch(arr,0,arr.length,to_search)); //It will only work for sorted array
+		System.out.println("Index of "+to_search+" = "+search.linearSearch(arr, to_search));
 	}
+	/**
+	 * @return numeric value only
+	 */
 	static int getInput()
 	{
 		int temp = 0;
@@ -40,7 +42,14 @@ public class Search {
 			return getInput();
 		}
 	}
-	public static int binarySearch(int arr[], int left_index, int right_index, int value_to_search)
+	/**
+	 * @param arr array to be searched
+	 * @param value_to_search value to be searched
+	 * @param left_index starting position for binary search
+	 * @param right_index ending position
+	 * @return index of search value if found in array else -1
+	 */
+	int binarySearch(int arr[], int left_index, int right_index, int value_to_search)
     { 
         if (right_index >= left_index) { 
             int mid = left_index + (right_index - left_index) / 2; 
@@ -60,7 +69,12 @@ public class Search {
         }
         return -1; 
     }
-	public static int linearSearch(int arr[], int value_to_search) 
+	/**
+	 * @param arr array to be searched
+	 * @param value_to_search value to be searched
+	 * @return index of search value if found in array else -1
+	 */
+	int linearSearch(int arr[], int value_to_search) 
     {
 		int index=0;
 		for(int value:arr)

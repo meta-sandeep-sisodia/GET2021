@@ -1,15 +1,20 @@
-package Recursion;
-
 import static org.junit.Assert.*;
+
 import org.junit.*;
 public class NQueenTest
 {
+	NQueen obj;
+	@Before
+	public void initializeClass() throws Exception
+	{
+		obj=new NQueen();
+	}
 	@Test
 	public void NQueenProblemTest()
 	{
 		try
 		{
-			NQueen.createMatrix(3);
+			obj.createMatrix(3);
 		}
 		catch(Exception e)
 		{
