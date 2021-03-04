@@ -53,15 +53,12 @@ public class JobScheduler
 	static int total_waiting=0;
 	public static void main(String args[])
 	{
-		//fetchDetails(new int[][]{{0,10},{6,20},{60,10},{110,5}}); // Fetching process arrival and burst time
-		//fetchDetails(new int[][]{{0,5},{0,10},{1,5},{10,2},{20,10}});// Case 2
-		fetchDetails();
-		calculate(); // Calculating other parameters from fetched details
-		printDetails(); // Printing Details of various times related to process
+		JobScheduler batch_one=new JobScheduler();
+		batch_one.fetchDetails();
 	}
 	
 	// Taking input about the process arrival time and process burst time
-	public static void fetchDetails(int arr[][])
+	public void fetchDetails(int arr[][])
 	{
 		process=new int[arr.length][5];
 		/*
@@ -74,8 +71,10 @@ public class JobScheduler
 			process[n][0]=arr[n][0];
 			process[n][1]=arr[n][1];
 		}
+		calculate();
+		printDetails();
 	}
-	public static void fetchDetails()
+	public void fetchDetails()
 	{
 		Scanner scanner = new Scanner (System.in);
 		System.out.println("Enter arrival time or burst time in negative to finish entering data");
@@ -107,7 +106,7 @@ public class JobScheduler
 		}
 		fetchDetails(arr);
 	}
-	private static void calculate()
+	private void calculate()
 	{
 		for(int n=0;n<process.length;n++)
 		{
@@ -134,7 +133,7 @@ public class JobScheduler
 			}
 		}
 	}
-	public static void printDetails()
+	private void printDetails()
 	{
 		/*
 		 * Printing the calculated time for every processes
