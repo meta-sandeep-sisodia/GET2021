@@ -86,12 +86,14 @@ public class Area
 			}
 			else
 			{
+				System.out.println("Enter a positive number only");
+				scanner.nextLine();
 				input=getInput(str);
 			}
 		}
 		catch(InputMismatchException e)
 		{
-			System.out.println("Please enter Double value");
+			System.out.println("Please enter a Double positive value only");
 			scanner.nextLine();
 			input=getInput(str);
 		}
@@ -110,9 +112,9 @@ public class Area
 		{
 			choice=scanner.nextInt();
 			if(choice>=1&&choice<=5)
-				{
-					return choice;
-				}
+			{
+				return choice;
+			}
 			else
 			{
 				System.out.println("Enter between 1 to"+choices.length);

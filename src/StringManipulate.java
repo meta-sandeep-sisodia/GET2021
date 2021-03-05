@@ -7,7 +7,7 @@
 	Compare two strings and return 1 if equals else 0. Take two string inputs, compare them and return values accordingly.
 	Return the reverse of any string. 
 	Receive a string as parameter and replace lowercase characters with uppercase and vice-versa. 
-	Return the largest word of a string. If two words are of same length then return last word.
+	Return the largest word of a string. If two words are of same string_one_length then return last word.
 	
 	Also write proper specification for each method created above
 	
@@ -119,8 +119,8 @@ public class StringManipulate
 		 */
 		string+=" ";
 		int start=0,end=0,max_start=0,max_end=0;
-		int length=getLength(string);
-		for(int loop_var=0;loop_var<length;loop_var++)
+		int string_one_length=getstring_one_length(string);
+		for(int loop_var=0;loop_var<string_one_length;loop_var++)
 		{
 			if(string.charAt(loop_var)==(int)' ')
 			{
@@ -133,9 +133,9 @@ public class StringManipulate
 				}
 			}
 		}
-		if(max_end-max_start==0&&length!=0)
+		if(max_end-max_start==0&&string_one_length!=0)
 		{
-			max_end=length;
+			max_end=string_one_length;
 		}
 		return subString(max_start,max_end,string);
 	}
@@ -165,7 +165,7 @@ public class StringManipulate
 		 * 32 is the difference between integral value'A' and 'a', everything else goes unchanged like space symbols etc.
 		 */
 		StringBuilder toggled_string=new StringBuilder();
-		for(int temp=0;temp<getLength(string);temp++)
+		for(int temp=0;temp<getstring_one_length(string);temp++)
 		{
 			char ch=string.charAt(temp);
 			if(ch>='A'&&ch<='Z')
@@ -191,7 +191,7 @@ public class StringManipulate
 		 * String builder is used to reduce the creation of mutable objects
 		 */
 		StringBuilder reverse_string=new StringBuilder();
-		for(int temp=getLength(string)-1;temp>=0;temp--)
+		for(int temp=getstring_one_length(string)-1;temp>=0;temp--)
 		{
 			reverse_string.append(string.charAt(temp));
 		}
@@ -201,16 +201,16 @@ public class StringManipulate
 	public static int compareString(String string_one,String string_two)
 	{
 		/*
-		 * Two strings can be equal only of they have a equal length.
-		 * Return 0 if String1 length is not equal to String2 length.
+		 * Two strings can be equal only of they have a equal string_one_length.
+		 * Return 0 if String1 string_one_length is not equal to String2 string_one_length.
 		 * Without using Api's string needs to be compared word by word.
 		 * Return 1 if both the string are equals.
 		 */
-		// length is stored as for large string calculating length by custom method can increase time complexity
-		int length = getLength(string_one);
-		if(length==getLength(string_two))
+		// string_one_length is stored as for large string calculating string_one_length by custom method can increase time complexity
+		int string_one_length = getstring_one_length(string_one);
+		if(string_one_length==getstring_one_length(string_two))
 		{
-			for(int temp=0;temp<length;temp++)
+			for(int temp=0;temp<string_one_length;temp++)
 			{
 				if(string_one.charAt(temp)!=string_two.charAt(temp))
 				{
@@ -227,21 +227,21 @@ public class StringManipulate
 		 */
 		return 1;
 	}
-	public static int getLength(String string)
+	public static int getstring_one_length(String string)
 	{
 		/*
-		 * This function returns the length of the string for a passed string.
+		 * This function returns the string_one_length of the string for a passed string.
 		 * It Traverse through the string until it reaches end of string and index out of bound exception is thrown by charAt function.
-		 * length is used to traverse and record the no of characters traversed.
+		 * string_one_length is used to traverse and record the no of characters traversed.
 		 * No message is to be generated in catch block
 		 */
-		int length=0;
+		int string_one_length=0;
 		try
 		{
 			while(true)
 			{
-				string.charAt(length);
-				length++;
+				string.charAt(string_one_length);
+				string_one_length++;
 			}
 		}
 		catch(IndexOutOfBoundsException e)
@@ -250,6 +250,6 @@ public class StringManipulate
 			 * Reached the end of the string.
 			 */
 		}
-		return length;
+		return string_one_length;
 	}
 }

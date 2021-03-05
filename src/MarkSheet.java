@@ -43,7 +43,7 @@ public class MarkSheet
 		 * Default parameterized constructor
 		 * Used when grades value is passed by program accessing the MarkSheet class
 		 */
-		if(valudateinput(value)==true)
+		if(validateInput(value))
 		{
 			grades=value;
 			computeGrades();
@@ -67,7 +67,7 @@ public class MarkSheet
 		printStatistics();
 	}
 	
-	public boolean valudateinput(float[] value)
+	public boolean validateInput(float[] value)
 	{
 		/*
 		 * validate the grades value and return true if array is valid.
@@ -110,7 +110,7 @@ public class MarkSheet
 	{
 		/*
 		 * Takes input from helper function and store the value of grade received in grades array.
-		 * Validation of input is performed in helper funtion
+		 * Validation of input is performed in helper function
 		 */
 		
 		for(int temp=0;temp<grades.length;temp++)
@@ -160,7 +160,7 @@ public class MarkSheet
 		 * initially minimum grade is set to be the maximum value a grade can have.
 		 * initially maximum grade is set to be the minimum value a grade can have.
 		 * Sum of grade is also calculated for calculation of Average later on.
-		 * Working is used so the function have to fetch the value of a grade multiple times.
+		 * Working is used so the function don't have to fetch the value of a grade multiple times.
 		 * 
 		 */
 		int pass_count=0;
