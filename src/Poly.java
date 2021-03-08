@@ -30,7 +30,7 @@ public class Poly
 	 */
 	public Poly(int[][] equation)
 	{
-		if(validateInput(equation)==false)
+		if(!validateInput(equation))
 		{
 			System.out.println("Invalid Input : Should not contain 0");
 			this.equation=null;
@@ -46,25 +46,6 @@ public class Poly
 	/**
 	 * @param equation
 	 */
-	public Poly(int[] equation)
-	{
-		int arr[][]=to2DArray(equation);
-		if(validateInput(arr)==false)
-		{
-			System.out.println("Invalid Input : Should not contain 0");
-			this.equation=null;
-			System.exit(-1);
-		}
-		else
-		{
-			this.equation=arr;
-		}
-	}
-	
-	
-	/**
-	 * @param equation
-	 */
 	public void printPoly(int[][] equation)
 	{
 		for(int loop_var=0;loop_var<equation.length;loop_var++)
@@ -72,12 +53,6 @@ public class Poly
 			System.out.print((loop_var==0?"":getSymbol(equation[loop_var][0]))+Math.abs(equation[loop_var][0])+"x"+getSuperEquivalent(equation[loop_var][1]));
 		}
 	}
-	
-	
-	/**
-	 * @param i
-	 * @return
-	 */
 	
 	
 	/**
@@ -135,22 +110,6 @@ public class Poly
 			}
 		}
 		return true;
-	}
-	
-	
-	/**
-	 * @param equation
-	 * @return
-	 */
-	public int[][] to2DArray(int[] equation)
-	{
-		int arr[][]=new int[equation.length/2][2];
-		for(int loop_var=0;loop_var<arr.length;)
-		{
-			arr[loop_var][0]=equation[(loop_var*2)];
-			arr[loop_var][1]=equation[(loop_var*2)+1];
-		}
-		return arr;
 	}
 	
 	
@@ -279,7 +238,7 @@ public class Poly
 		int index;
 		for(index=0;index<array.length;index++)
 		{
-			if(array[index][0]==0||array[index][0]==0)
+			if(array[index][0]==0)
 			{
 				break;
 			}

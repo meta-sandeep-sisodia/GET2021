@@ -55,7 +55,8 @@ public final class IntSet
 			System.exit(-1);
 		}
 	}
-	public boolean validateInput(int[] arr)
+	
+	private boolean validateInput(int[] arr)
 	{
 		if(arr.length>range)
 		{
@@ -68,22 +69,17 @@ public final class IntSet
 				return false;
 			}
 		}
-		return !containDuplicateElements(arr);
-	}
-	
-	private boolean containDuplicateElements(int[] arr)
-	{
 		for(int loop_var=0;loop_var<arr.length;loop_var++)
 		{
 			for(int inner_loop_var=loop_var+1;inner_loop_var<arr.length;inner_loop_var++)
 			{
 				if(arr[inner_loop_var]==arr[loop_var])
 				{
-					return true;
+					return false;
 				}
 			}
 		}
-		return false;
+		return true;
 	}
 	
 	public boolean isMember(int x)
@@ -144,15 +140,15 @@ public final class IntSet
 	public void setUniversalSet(int range)
 	{
 		this.range=range;
-	}
-	public IntSet getComplement()
-	{
-		int loop_var=0;
-		for(loop_var=1;loop_var<=range;loop_var++)
+		for(int loop_var=1;loop_var<=range;loop_var++)
 		{
 			universal_set.add(loop_var);
 		}
-		for(loop_var=0;loop_var<set.length;loop_var++)
+	}
+	public IntSet getComplement()
+	{
+		setUniversalSet(range);
+		for(int loop_var=0;loop_var<set.length;loop_var++)
 		{
 			if(universal_set.contains(set[loop_var]))
 			{
