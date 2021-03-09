@@ -34,12 +34,12 @@ public class HcfLcmTest
 	@Test
 	public void testHcf_twoNegativeNo()
 	{
-		assertEquals(1,obj.getHcf(-8,-5));
+		assertEquals(-1,obj.getHcf(-8,-5));
 	}
 	@Test
 	public void testLcm_twoNegativeNo()
 	{
-		assertEquals(40,obj.getLcm(-8,-5));
+		assertEquals(-40,obj.getLcm(-8,-5));
 	}
 	@Test
 	public void testHcf_twoNoWithOneZeroEqualsValue()

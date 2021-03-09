@@ -21,4 +21,17 @@ public class NQueenTest
 			assertEquals("No Solution exist for N smaller than 3",e.getMessage());
 		}
 	}
+	
+	@Test
+	public void NQueenProblemTest_negative_value()
+	{
+		try
+		{
+			obj.createMatrix(-3);
+		}
+		catch(Exception e)
+		{
+			assertEquals("No Solution exist for N smaller than 3",e.getMessage());
+		}
+	}
 }
