@@ -24,13 +24,7 @@ public class NQueen
 			throw new Exception("No Solution exist for N smaller than 3");
 		}
 		int board[][]=new int[dimensionOfMatrix][dimensionOfMatrix];
-		for(int loop_var=0;loop_var<dimensionOfMatrix;loop_var++)
-		{
-			for( int inner_loop_var=0;inner_loop_var<dimensionOfMatrix;inner_loop_var++)
-			{
-				board[loop_var][inner_loop_var]=0;
-			}
-		}
+		
 		Boolean result = nQueen(board , 0, dimensionOfMatrix);
 		if(result==true)
 		{

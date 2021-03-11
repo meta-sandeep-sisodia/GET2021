@@ -21,8 +21,13 @@ public class Search {
 		System.out.println("Enter the element to search");
 		int to_search=getInput();
 		Search search=new Search();
-		System.out.println("Index of "+to_search+" = "+search.binarySearch(arr,0,arr.length,to_search)); //It will only work for sorted array
-		System.out.println("Index of "+to_search+" = "+search.linearSearch(arr, to_search));
+		System.out.println("Enter 1 to perform Linear Search\n 2 to perform Binary search");
+		switch(getInput())
+		{
+		case 1:System.out.println("Index of "+to_search+" = "+search.linearSearch(arr, to_search)); break;//It will only work for sorted array
+		case 2:System.out.println("Index of "+to_search+" = "+search.binarySearch(arr,0,arr.length,to_search));break;
+		default:System.out.println("Invalid choice");
+		}
 	}
 	/**
 	 * @return numeric value only
@@ -69,6 +74,10 @@ public class Search {
         }
         return -1; 
     }
+	int binarySearch(int arr[], int value_to_search)
+	{
+		return binarySearch(arr,0,arr.length,value_to_search);
+	}
 	/**
 	 * @param arr array to be searched
 	 * @param value_to_search value to be searched
