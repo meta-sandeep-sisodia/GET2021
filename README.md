@@ -1,7 +1,7 @@
 #Database Management System - Assignments
 Session 1
 
-## Assignment 1
+## Assignment 1 [Answer](https://meta-sandeep-sisodia.drawerd.com/projects/1931/render_svg?share_key=6b9d83fdbf8656a1e04e15569eefd4)
 -There is an Organization (StoreFront) that would like to go online for selling their products. We have the following information to build an application that meets the requirements:
 -Application contains many Products.
 -Categories will categorised the Products.
@@ -21,7 +21,7 @@ Session 1
 >-Draw the E-R diagram for the problem.
 
 
-## Assignment 2
+## Assignment 2 [Answer](https://docs.google.com/document/d/1IDgRiVSaDLj0_PlBuI2tHvFvKlfUn3ZoTPEmsDV7hIw/edit?usp=sharing)
 >-Explain Normalization techniques (along with an example) as discussed during Session.
 
 ## Assignment 3
