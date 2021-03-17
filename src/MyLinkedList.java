@@ -7,20 +7,20 @@ public class MyLinkedList
         node.setNext(head);
         head=node;
     }
-    public MyLinkedList getSublist(int start, int end)
+    public MyLinkedList getSublist(int start, int end) 
     {
         MyLinkedList sublist=new MyLinkedList();
         MyNode current=head;
         for(int loop_var=1;loop_var<=end;loop_var++)
         {
-            int temp=current.getValue();
-            current=current.getNext();
+                        
             if(loop_var>=start && loop_var<=end)
             {
-                sublist.addToFront(temp);
+                sublist.addToFront(current.getValue());
             }
+            current=current.getNext();
         }
-
+		
         return sublist.reverse();
     }
 
@@ -32,7 +32,7 @@ public class MyLinkedList
         {
             int temp=current.getValue();
             current=current.getNext();
-            reverse_list.addToFront(temp);
+            reverse_list.addToFront(temp); 
         }
         return reverse_list;
     }
@@ -43,6 +43,7 @@ public class MyLinkedList
         {
             current=current.getNext();
         }
+        
         MyLinkedList rotated_list=new MyLinkedList();
         MyNode breakpoint=current;
         while (current!=null)

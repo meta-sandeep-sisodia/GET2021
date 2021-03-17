@@ -4,11 +4,10 @@ import org.junit.Test;
 
 public class MultiVariablePolynomialTest
 {
-	MultiVariablePolynomial poly;
 	@Test
-	public void test_poly()
+	public void test_poly_complex_multi_variable_poly()
 	{
-		String polynomial="3x2y4-5z2+x-y+20";
+		String polynomial="3x2y4-5z5+x-y+20";
         MultiVariablePolynomial poly =new MultiVariablePolynomial(polynomial);
         assertEquals(6,poly.calculateMaxDegree());
 	}

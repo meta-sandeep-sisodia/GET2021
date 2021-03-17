@@ -24,9 +24,22 @@ public class LoopDetectionTest
 	}
 	
 	@Test
-	public void LoopedListTest()
+	public void LoopedList_artificial_loop_simulated()
 	{
 		list.head.getNext().getNext().getNext().setNext(list.head.getNext().getNext());
+		assertEquals("Loop Found",list.detectLoop()?"Loop Found":"Loop Not Found");
+	}
+	
+	// Circular linked list created
+	@Test
+	public void LoopedList_head_equals_tail()
+	{
+		MyNode current = list.head;
+		while(current.getNext()!=null)
+		{
+			current=current.getNext();
+		}
+		current.setNext(list.head);
 		assertEquals("Loop Found",list.detectLoop()?"Loop Found":"Loop Not Found");
 	}
 }

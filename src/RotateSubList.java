@@ -18,7 +18,7 @@ public class RotateSubList
 	    this.start=start;
 	    this.end=end;
 	    this.no_of_rotation=no_of_rotation;
-    	validate();
+    	if(validate())
     	System.out.println(getResult());
     }
     
@@ -34,29 +34,27 @@ public class RotateSubList
 			return result;
     }
     
-    public String validate()
+    public boolean validate()
     {
 		if(list==null)
 		{
-			return "Null List Passed";
+			throw new AssertionError("Null List Passed");
 		}
 		else if(start>end)
 		{
-			return "Starting index for sublist can't be greater than end";
+			throw new AssertionError( "Starting index for sublist can't be greater than end");
 		}
 		else if(start<0||end<0||start>=list.size()||end>list.size()||end-start<0)
 		{
-			return "Invalid Start or End values";
+			throw new AssertionError("Invalid Start or End values");
 		}
 		else if(no_of_rotation<0)
 		{
-			return "Rotation cant be in negative";
+			throw new AssertionError( "Rotation cant be in negative");
 		}
-		else
-		{
-			return null;
-		}
+		return true;
 	}
+    
 	private void takeInputFromUser()
     {
     	System.out.println("Enter the number of items in list : ");
