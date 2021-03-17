@@ -296,13 +296,19 @@ public class SparseMatrix
             throw new Exception("Can not multiply two matrix");
         }
         // Simple brute force
-        for(int x=0;x<sparse[0].length;x++)
+        int index=0;
+        for(int x=0;x<sparse.length;x++)
         {
-        	for(int y=0;y<matrix_to_multiply[0].length;y++)
+        	for(int y=0;y<matrix_to_multiply.length;y++)
         	{
-        		if(sparse[1][x]==matrix_to_multiply[0][y])
+        		System.out.println("s[x][0] "+sparse[x][0]+" m[y][1] "+matrix_to_multiply[y][1]+"s[x][1] "+sparse[x][1]+" m[y][0] "+matrix_to_multiply[y][0]);
+        		if(sparse[x][0]==matrix_to_multiply[y][1] && sparse[x][1]==matrix_to_multiply[y][0] )
         		{
-        			result[sparse[0][x]][matrix_to_multiply[1][y]]=sparse[2][x]*matrix_to_multiply[2][y];
+        			System.out.println("Reached here");
+        			result[index][0]=x;
+        			result[index][1]=y;
+       				result[index][2]=sparse[x][2]*matrix_to_multiply[y][2];
+       				index++;
         		}
         	}
         }
@@ -319,53 +325,48 @@ public class SparseMatrix
         System.out.println();
         return result;
     }
-    public static void main(String[] args) throws Exception
+    public static void main(String[] args)
     {
+    	int[][] arr = null;
         /*
         int[][] matrix=new int[][]
                 {
-                        {0,2,0,3},
+                        {0,0,0,1},
                         {0,2,0,0},
-                        {0,0,2,0},
-                        {0,0,0,0}
+                        {0,0,3,0}
                 };
          */
 
         int[][] matrix1=new int[][]
                 {
-                        {1,0,3,0},
-                        {0,3,0,1},
-                        {9,0,7,0},
-                        {0,7,0,9}
+        			{0,0,0,1},
+        			{0,2,0,0},
+        			{0,0,3,0}
                 };
 
 
         int[][] matrix2=new int[][]
                 {
-                        {0,2,0,4},
-                        {4,0,2,0},
-                        {0,8,0,6},
-                        {6,0,8,0}
+                        {0,0},
+                        {0,1},
+                        {0,2},
+                        {1,0}
                 };
-        SparseMatrix matrix=new SparseMatrix(matrix2);
-        int arr[][]=matrix.addMatrix(matrix1);
+        SparseMatrix matrix=new SparseMatrix(matrix1);
+        /*
+         * int arr[][]=matrix.addMatrix(matrix1);
+        */
+        try
         {
-            // Snippet
-            int x[][] = matrix.toNormalMatrix(arr);
-            for (int a = 0; a < x.length; a++)
-            {
-                for (int b = 0; b < x[0].length; b++)
-                {
-                    System.out.print(x[a][b] + " ");
-                }
-                System.out.println();
-            }
-            System.out.println();
+        	arr=matrix.multiplySparseMatrix(matrix2);
         }
-        arr=matrix.multiplySparseMatrix(matrix1);
+        catch (Exception e)
+        {
+        	System.out.print("Trigger");
+        }
         {
             // Snippet
-            int x[][] = matrix.toNormalMatrix(arr);
+            int x[][] =(arr);
             for (int a = 0; a < x.length; a++)
             {
                 for (int b = 0; b < x[0].length; b++)
