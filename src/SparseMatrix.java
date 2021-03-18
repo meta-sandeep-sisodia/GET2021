@@ -286,9 +286,11 @@ public class SparseMatrix
     public int[][] multiplySparseMatrix(int matrix_to_multiply[][]) throws Exception  // UNDER DEVELOPMENT
     {
         int result[][];
-        if(matrix_to_multiply.length==col && matrix_to_multiply[0].length==row)
+        int row_1=matrix_to_multiply.length;
+        int col_1=matrix_to_multiply[0].length;
+        if(col==row_1)
         {
-            result=new int[row*col][3];
+            result=new int[row*col_1][3];
             matrix_to_multiply=toSparseMatrix(matrix_to_multiply);
         }
         else
@@ -297,10 +299,17 @@ public class SparseMatrix
         }
         // Simple brute force
         int index=0;
-        for(int x=0;x<sparse.length;x++)
+        for(int x=0;x<row;x++) // for mat1 row
         {
-        	for(int y=0;y<matrix_to_multiply.length;y++)
+        	if(sparse[x][0]==x)
+        	for(int y=0;y<col;y++) //for mat1 col iteration
         	{
+        		if(sparse[y][1]==y)
+        		for(int z=0;z<row_1;z++)
+        		{
+        			if(matrix_to_multiply[z][1]==x)
+        				for(int w=0;w<)
+        		}
         		System.out.println("s[x][0] "+sparse[x][0]+" m[y][1] "+matrix_to_multiply[y][1]+"s[x][1] "+sparse[x][1]+" m[y][0] "+matrix_to_multiply[y][0]);
         		if(sparse[x][0]==matrix_to_multiply[y][1] && sparse[x][1]==matrix_to_multiply[y][0] )
         		{
@@ -322,7 +331,7 @@ public class SparseMatrix
             }
             System.out.println();
         }
-        System.out.println();
+        System.out.println("Reached here");
         return result;
     }
     public static void main(String[] args)
@@ -362,11 +371,12 @@ public class SparseMatrix
         }
         catch (Exception e)
         {
-        	System.out.print("Trigger");
+        	System.out.print("Trigger"+e.getMessage());
         }
         {
             // Snippet
             int x[][] =(arr);
+            if(x!=null)
             for (int a = 0; a < x.length; a++)
             {
                 for (int b = 0; b < x[0].length; b++)
