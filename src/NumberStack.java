@@ -7,8 +7,7 @@ public class NumberStack
     {
         if(top >= list.size())
         {
-            System.out.println("Overflow stack");
-            return;
+            throw new AssertionError("Overflow stack");
         }
         top++;
         list.addToFront(element);
@@ -18,8 +17,7 @@ public class NumberStack
     {
         if(top == -1)
         {
-            System.out.println("Underflow Stack");
-            return -1;
+        	throw new AssertionError("Underflow Stack");
         }
         int element = list.removeFromFront();
         top--;

@@ -10,11 +10,11 @@ class Queue
         queue = new int[this.capacity];
     }
 
-    void addToQueue(int data) throws Exception
+    void addToQueue(int data)
     {
         if (isFull())
         {
-            throw new Exception("Queue is full");
+            throw new AssertionError("Queue is full");
         }
         else
         {
@@ -23,11 +23,11 @@ class Queue
         }
     }
 
-    void removeFromQueue() throws Exception
+    void removeFromQueue()
     {
         if (isEmpty())
         {
-            throw new Exception("Queue is Empty");
+            throw new AssertionError("Queue is Empty");
         }
         else
         {
@@ -50,7 +50,7 @@ class Queue
         return capacity == rear;
     }
 
-    void printQueue() throws Exception
+    void printQueue()
     {
         if (isEmpty())
         {
@@ -63,11 +63,11 @@ class Queue
         System.out.println();
     }
 
-    int getFront() throws Exception
+    int getFront()
     {
         if (front == rear)
         {
-            throw new Exception("Queue is Empty");
+            throw new AssertionError("Queue is Empty");
         }
         return queue[front];
     }
