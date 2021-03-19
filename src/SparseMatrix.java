@@ -31,34 +31,24 @@ public class SparseMatrix
         return element_count;
     }
 
-
-    //public SparseMatrix()
-    //{
-        //Under development
-    //}
     public SparseMatrix(int matrix[][])
     {
-        this.sparse=toSparseMatrix(matrix);
-        this.row=matrix.length;
-        this.col=matrix[0].length;
-        transposeMatrix();
+    	try
+    	{
+    		this.sparse=toSparseMatrix(matrix);
+        	this.row=matrix.length;
+        	this.col=matrix[0].length;
+        	transposeMatrix();
+    	}
+    	catch(Exception e)
+    	{
+    		throw new AssertionError("Null array passed");
+    	}
     }
-    public void operate()
-    {
-
-    }
-    public void getInput()
-    {
-
-    }
-    public void displayOptions()
-    {
-
-    }
-
+    
     public void printTransposeMatrix()
     {
-        printMatrix(transpose,row,col);
+        printMatrix(transpose,col,row);
     }
 
     public void printSparseMatrix()
@@ -100,6 +90,22 @@ public class SparseMatrix
         }
         System.out.println();
     }
+    
+    public int[][] trimMatrix(int[][] arr)
+    {
+    	int temp=0;
+    	while(arr[temp][2]!=0)
+    	{
+    		temp++;
+    	}
+    	int result[][]=new int[temp][3];
+    	for(int x=0;x<temp;x++)
+    	{
+    		result[x]=arr[x];
+    	}
+    	return result;
+    }
+    
     public int[][] toSparseMatrix(int[][] matrix)
     {
         int index=0;
@@ -125,6 +131,7 @@ public class SparseMatrix
         }
         return result;
     }
+    
     public int[][] toNormalMatrix(int sparse[][])
     {
         int result_matrix[][]=new int[this.row][this.col];
@@ -134,6 +141,7 @@ public class SparseMatrix
         }
         return result_matrix;
     }
+    
     public void transposeMatrix()
     {
         transpose=new int[sparse.length][3];
@@ -146,16 +154,19 @@ public class SparseMatrix
         transpose=sortSparseMatrix(transpose);
 
     }
-    public void isSymmetric()
+    
+    public boolean isSymmetric()
     {
         for (int loop_var=0;loop_var<sparse.length;loop_var++)
         {
             if(sparse[loop_var][0]!=transpose[loop_var][0] || sparse[loop_var][1]!=transpose[loop_var][1] || sparse[loop_var][2]!=transpose[loop_var][2])
             {
-                System.out.println("Not Symmetric");
+                return false;
             }
         }
+        return true;
     }
+    
     public int[][] sortSparseMatrix(int[][] matrix)
     {
         int temp[];
@@ -197,7 +208,7 @@ public class SparseMatrix
         return matrix;
     }
 
-    public int[][] addMatrix(int[][] matrix_to_add) throws Exception
+    public int[][] addMatrix(int[][] matrix_to_add)
     {
         int[][] result;
         if(matrix_to_add.length==row && matrix_to_add[0].length==col)
@@ -209,7 +220,7 @@ public class SparseMatrix
         }
         else
         {
-            throw new Exception("Can not add two matrix with different dimensions");
+            throw new AssertionError("Can not add two matrix with different dimensions");
         }
         int index=0;
         int x=0; // for sparse
@@ -281,126 +292,31 @@ public class SparseMatrix
                 break;
             }
         }
-        return result;
+        return trimMatrix(result);
     }
-    public int[][] multiplySparseMatrix(int matrix_to_multiply[][]) throws Exception  // UNDER DEVELOPMENT
+    
+    public int[][] multiplySparseMatrix(int matrix_to_multiply[][])
     {
-        int result[][];
-        int row_1=matrix_to_multiply.length;
-        int col_1=matrix_to_multiply[0].length;
-        if(col==row_1)
+        SparseMatrix sparse2=new SparseMatrix(matrix_to_multiply);
+        if(col==sparse2.row)
         {
-            result=new int[row*col_1][3];
-            matrix_to_multiply=toSparseMatrix(matrix_to_multiply);
+        	int result[][]=new int[row][sparse2.col];
+        	int matrix2[][]=sparse2.getTranspose();
+        	for(int x=0;x<row;x++)
+        	{
+        		for(int y=0;y<matrix2.length;y++)
+        		{
+        			if(sparse[x][1]==matrix2[y][1])
+        			{
+        				result[sparse[x][0]][matrix2[y][0]]+=sparse[x][2]*matrix2[y][2];
+        			}
+        		}
+        	}
+        	return result;
         }
         else
         {
-            throw new Exception("Can not multiply two matrix");
-        }
-        // Simple brute force
-        int index=0;
-        for(int x=0;x<row;x++) // for mat1 row
-        {
-        	if(sparse[x][0]==x)
-        	for(int y=0;y<col;y++) //for mat1 col iteration
-        	{
-        		if(sparse[y][1]==y)
-        		for(int z=0;z<row_1;z++)
-        		{
-        			if(matrix_to_multiply[z][1]==x)
-        				for(int w=0;w<)
-        		}
-        		System.out.println("s[x][0] "+sparse[x][0]+" m[y][1] "+matrix_to_multiply[y][1]+"s[x][1] "+sparse[x][1]+" m[y][0] "+matrix_to_multiply[y][0]);
-        		if(sparse[x][0]==matrix_to_multiply[y][1] && sparse[x][1]==matrix_to_multiply[y][0] )
-        		{
-        			System.out.println("Reached here");
-        			result[index][0]=x;
-        			result[index][1]=y;
-       				result[index][2]=sparse[x][2]*matrix_to_multiply[y][2];
-       				index++;
-        		}
-        	}
-        }
-        // Snippet
-        int x[][] = result;
-        for (int a = 0; a < x.length; a++)
-        {
-            for (int b = 0; b < x[0].length; b++)
-            {
-                System.out.print(x[a][b] + " ");
-            }
-            System.out.println();
-        }
-        System.out.println("Reached here");
-        return result;
-    }
-    public static void main(String[] args)
-    {
-    	int[][] arr = null;
-        /*
-        int[][] matrix=new int[][]
-                {
-                        {0,0,0,1},
-                        {0,2,0,0},
-                        {0,0,3,0}
-                };
-         */
-
-        int[][] matrix1=new int[][]
-                {
-        			{0,0,0,1},
-        			{0,2,0,0},
-        			{0,0,3,0}
-                };
-
-
-        int[][] matrix2=new int[][]
-                {
-                        {0,0},
-                        {0,1},
-                        {0,2},
-                        {1,0}
-                };
-        SparseMatrix matrix=new SparseMatrix(matrix1);
-        /*
-         * int arr[][]=matrix.addMatrix(matrix1);
-        */
-        try
-        {
-        	arr=matrix.multiplySparseMatrix(matrix2);
-        }
-        catch (Exception e)
-        {
-        	System.out.print("Trigger"+e.getMessage());
-        }
-        {
-            // Snippet
-            int x[][] =(arr);
-            if(x!=null)
-            for (int a = 0; a < x.length; a++)
-            {
-                for (int b = 0; b < x[0].length; b++)
-                {
-                    System.out.print(x[a][b] + " ");
-                }
-                System.out.println();
-            }
-            System.out.println();
+        	throw new AssertionError("Mat1 row is not equal Mat2 col");
         }
     }
 }
-
-/*
-{
-        // Snippet
-        int x[][] = transpose;
-        for (int a = 0; a < x.length; a++)
-        {
-        for (int b = 0; b < x[0].length; b++)
-        {
-        System.out.print(x[a][b]);
-        }
-        System.out.println();
-        }
-        System.out.println();
-        }*/
