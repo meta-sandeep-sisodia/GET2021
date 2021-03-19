@@ -10,21 +10,8 @@ public class ArrOperation
         }
         else
         {
-            System.out.println("Can not perform operations on null array");
-            System.exit(-1);
+            throw new AssertionError("Can not perform operations on null array");
         }
-    }
-
-    // Getter
-    public int[] getArray()
-    {
-        return array;
-    }
-
-    // Setter
-    public void setArray(int[] array)
-    {
-        this.array = array;
     }
 
     // Main function
@@ -97,39 +84,40 @@ public class ArrOperation
         return clumps_count;
     }
 
-    void fixXY(int x, int y)
+    int[] fixXY(int x, int y)
     {
+    	int result[]=array;
         int index_of_y=0;
-        for(int loop_var=0;loop_var<array.length-1;loop_var++)
+        for(int loop_var=0;loop_var<result.length-1;loop_var++)
         {
-            if(array[loop_var]==x)
+            if(result[loop_var]==x)
             {
                 boolean found_y=false;
-                for(int inner_loop_var=index_of_y;inner_loop_var< array.length;inner_loop_var++)
+                for(int inner_loop_var=index_of_y;inner_loop_var< result.length;inner_loop_var++)
                 {
-                    if(array[inner_loop_var]==y)
+                    if(result[inner_loop_var]==y)
                     {
                         found_y=true;
                         index_of_y=inner_loop_var;
-                        inner_loop_var=array.length+1; //break inner loop as soon as y if found
+                        break;
                     }
                 }
                 if(found_y)
                 {
-                    // Swap
-                    array[loop_var + 1] += array[index_of_y];
-                    array[index_of_y] = array[loop_var + 1] - array[index_of_y];
-                    array[loop_var + 1] -= array[index_of_y];
-                    index_of_y=loop_var+2;
+                	int temp=result[loop_var+1];
+                	result[loop_var+1]=y;
+                	result[index_of_y]=temp;
+                	index_of_y+=2;
                 }
                 else
                 {
-                    return;
+                    return result;
                 }
             }
         }
+        return result;
     }
-
+    
     int splitArray()
     {
         int right_sum=0;
