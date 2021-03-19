@@ -154,7 +154,7 @@ public class CollegeCounseling
 
 		try
 		{
-			FileOutputStream output = new FileOutputStream(new File("D:\\GET2021\\src\\Counseling\\result.xlsx"));
+			FileOutputStream output = new FileOutputStream(new File(resultPath));
 			workbook.write(output);
 		}
 		catch (Exception e)
