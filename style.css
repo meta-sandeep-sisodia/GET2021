@@ -1,0 +1,85 @@
+body
+{
+  background-color: #f5f5f5;
+}
+navBar
+{
+	padding: 10px;
+	margin:5px;
+	border-color:#000000;
+}
+ul
+{
+  list-style-type: none;
+  margin-bottom: 15px;
+  padding: 0px;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li
+{
+  float: left;
+}
+
+li a
+{
+  width:100px;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover
+{
+  background-color: #808080;
+  width:130px;
+}
+
+.accordion {
+  background-color: #3c3c3c;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  outline: none;
+}
+
+.active, .accordion:hover {
+  background-color: #ccc;
+}
+
+.panel {
+  padding: 0 18px;
+  padding: 18px;
+  background-color: #787878;
+  //<!-- display: none; -->
+  overflow: hidden;
+}
+
+#feedback
+{
+	display:block;
+	padding: 100px 50px;
+	background-color:#b4b4b4;
+}
+
+#price
+{
+	
+  height: auto;
+  overflow:hidden
+}
+#cycle,#motorcycle,#fourwheeler
+{
+	min-width:100px;
+text-align:center;
+	border:12px;
+	border-color:black;
+  float: left;
+  padding-left:10%;
+  padding-right:10%;
+}
