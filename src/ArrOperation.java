@@ -84,7 +84,7 @@ public class ArrOperation
         return clumps_count;
     }
 
-    int[] fixXY(int x, int y)
+    int[] fixXY_old(int x, int y)
     {
     	int result[]=array;
         int index_of_y=0;
@@ -118,23 +118,57 @@ public class ArrOperation
         return result;
     }
     
+    public int[] fixXY(int x, int y)
+    {
+        int j = 0;
+        for (int i = 0; i < array.length - 1; i++)
+        {
+          if (array[i] == x && array[i + 1] != y)
+          {
+            while (array[j] != y || (j != 0 && array[j - 1] == x))
+            {
+              j++;
+            }
+            array[j] = array[i + 1];
+            array[i + 1] = y;
+          }
+        }
+        return array;
+      }
+    
     int splitArray()
     {
-        int right_sum=0;
-        int left_sum=0;
-        for(int value:array)
+    	int leftPointer = 0;
+        int rightPointer = array.length -1;
+        int right_sum=array[rightPointer];
+        int left_sum=array[leftPointer];
+        for(; ;)
         {
-            right_sum+=value;
-        }
-        for(int loop_var=0;loop_var< array.length;loop_var++)
-        {
-            left_sum+=array[loop_var];
-            right_sum-=array[loop_var];
-            if(left_sum==right_sum)
+            if(leftPointer + 1 == rightPointer)
             {
-                return loop_var+1;
+               
+                if(left_sum == right_sum)
+                {
+                    return rightPointer;
+                }
+                else
+                {
+                    return -1;
+                }
+
+            }
+            if(left_sum > right_sum)
+            {
+                rightPointer--;
+                right_sum+=array[rightPointer];
+                
+            }
+            else 
+            {
+                leftPointer++;
+                left_sum += array[leftPointer];
+                
             }
         }
-        return -1;
     }
 }
