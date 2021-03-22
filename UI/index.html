@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<head>
+    <title> Metacube Parking System</title>
+</head>
+<body >
+	<!-- Navigation bar -->
+    <div id="navBar">
+        <a href="#addEmployee">Add Employee</a>
+        <a href="#addVehicle">Add Vehicle</a>
+        <a href="#feedback">Feedback</a>
+        <a href="#Price">Pricing</a>
+    </div>
+    
+    <!-- Cover Image -->
+    <img src="cover.jpg" width="100%"  align="center" />
+     
+    <!-- Employee form -->
+    <div id="addEmployee">
+        <form action="" name="registrationForm" method = "GET"> 
+                <h2 >Employee Details</h1>
+                <label>Full name :</label>
+                <input type="text" name="name" id="name" placeholder="First name Last name" required />
+                <br/><br/>
+                
+               <label>Gender :</label>
+                <input type="radio" name="gender" value="male" checked/> Male
+                <input type="radio" name="gender" value="female"/> Female
+                <input type="radio" name="gender" value="other"/> Other
+                <br/><br/>
+                
+                <label>Email :</label>
+                <input type="email" id="email" name="email" placeholder="username@website.com" required />
+                <br/><br/>
+
+                <label>Password :</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password here" required />
+                <br/><br/>
+
+                <label>Confirm Password :</label>
+                <input type="password" id ="confirmPassword" name="Confirm password" placeholder="Enter your password again" required />
+                <br/><br/>
+
+                <label> Contact Number :</label>
+                <input type="tel" id="contact" name="ContactNumber" placeholder="9876543210" required />
+                <br/><br/>
+
+                <input type="submit" value="Submit Details" />
+          </form> 
+    </div>
+   
+    <!-- Vehicle details form -->
+    <div id="addVehicle">
+            <form action="" name = "VehicleDetails" method="GET">
+                <h2>Vehicle Details Form</h2>
+               <label>Vehicle Make :</label>  
+                <input id="vehicleName" type="text"  name="vehicleName" placeholder="Royal Enfield"required />
+                <br/><br/>
+                <label>Vehicle Model :</label>  
+                <input id="vehicleModel" type="text"  name="vehicleModel" placeholder="Thunderbird"required />
+                <br/><br/>
+               <label>Type : </label>
+                <select id="type" value ="type" required>
+                        <option >Select Type</option>
+                        <option value="cycle" >Cycle</option>
+                        <option value="boat" >Boat</option>
+                        <option value="motorCycle" >Motor Cycle</option>
+                        <option value="fourWheelers" >Four Wheelers </option>
+                </select>
+                <br/><br/>
+
+               <label> Vehicle Number :</label>
+                <input id="vehicleNumber" type="text" name="vehicleNumber" placeholder="UP20BF7361" required />
+                <br/><br/>
+
+                <label>EmployeeId :</label>
+                <input id="empId" type="text" name= "empId" placeholder="E/21" required />
+                <br/><br/>
+                
+                <label>Indentification :</label>
+                <textarea  cols="20" name="identification" placeholder="Colour, mark, visible accessory etc."></textarea>
+                <br/><br/>
+
+                <input type="submit" value="Add Vehicle"  />
+        </div>
+
+	<!-- Feedback -->
+	<div id="feedback">
+            <form action = "" method = "GET" name="FeedbackForm">
+                <h2>Get In Touch</h2>
+              
+                       <label>Name :</label>
+                        <input type="text" name="name" id = "name" placeholder="John Doe" required/>
+                        <br/><br/>
+                    
+                        <label>Email :</label>
+                        <input type="email" name="email" id= "email" placeholder="Email" required/>
+                        <br/><br/>
+                    
+                        <label>Subject :</label>
+                        <input type="text" name="subject" id = "subject " placeholder="Subject"required/>
+                        <br/><br/>
+        
+                        <label>Message :</label>
+                        <textarea cols = "20" name="message" placeholder="Your Message" required></textarea>
+                        <br/><br/>
+                   
+                   <input type="submit" value="Send feedback" />
+            </form>
+        </div>
+
+
+        <!-- Pricing section -->
+        
+            <div id="Price">
+                    <!-- Cycle Pricing -->
+                <div id="cycle">
+                    <h2>Cycle</h2>
+                        <p><b>$100</p>
+                        <p>/month</p>
+                       	<p>$5 Daily</p>
+                        <p>$100 Monthly</p>
+                        <p>$500 Yearly</p>
+                        <input type="button" value="Purchase Now" />
+                </div>
+        
+                <!-- MotorCycle Pricing -->
+                <div id="motorcycle">
+                  <h2>MotorCycle</h2>
+                    <p><b>$200</b></p>
+                    <p>/month</p>
+                    <p>$10 Daily</p>
+                    <p>$200 Monthly</p>
+                    <p>$1000 Yearly</p>
+                    <input type="button" value="Purchase Now" />
+                </div>
+        
+                <!-- FourWheeler Pricing -->
+                <div id="fourwheeler">
+                <h2>Four Wheelers</h2>
+                    <p><b>$500</b></p>
+                    <p>/month</p>
+                    <p>$20 Daily</p>
+                    <p>$500 Monthly</p>
+                    <p>$3500 Yearly</p>
+                    <input type="button" value="Purchase Now" />
+                </div>
+                    
+    </div>
+</body>
+</html>
