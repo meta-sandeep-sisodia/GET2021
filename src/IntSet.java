@@ -62,15 +62,12 @@ public final class IntSet
 		{
 			return false;
 		}
-		for(int value:arr)
+		for(int loop_var=0;loop_var<arr.length;loop_var++)
 		{
-			if(value>range||value<1)
+			if(arr[loop_var]>range||arr[loop_var]<1)
 			{
 				return false;
 			}
-		}
-		for(int loop_var=0;loop_var<arr.length;loop_var++)
-		{
 			for(int inner_loop_var=loop_var+1;inner_loop_var<arr.length;inner_loop_var++)
 			{
 				if(arr[inner_loop_var]==arr[loop_var])
