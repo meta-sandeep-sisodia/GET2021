@@ -84,40 +84,6 @@ public class ArrOperation
         return clumps_count;
     }
 
-    int[] fixXY_old(int x, int y)
-    {
-    	int result[]=array;
-        int index_of_y=0;
-        for(int loop_var=0;loop_var<result.length-1;loop_var++)
-        {
-            if(result[loop_var]==x)
-            {
-                boolean found_y=false;
-                for(int inner_loop_var=index_of_y;inner_loop_var< result.length;inner_loop_var++)
-                {
-                    if(result[inner_loop_var]==y)
-                    {
-                        found_y=true;
-                        index_of_y=inner_loop_var;
-                        break;
-                    }
-                }
-                if(found_y)
-                {
-                	int temp=result[loop_var+1];
-                	result[loop_var+1]=y;
-                	result[index_of_y]=temp;
-                	index_of_y+=2;
-                }
-                else
-                {
-                    return result;
-                }
-            }
-        }
-        return result;
-    }
-    
     public int[] fixXY(int x, int y)
     {
         int j = 0;
