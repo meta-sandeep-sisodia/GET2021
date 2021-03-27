@@ -7,7 +7,7 @@ import org.junit.Test;
 public class SparseMatrixTest
 {
     @Test
-	public void null_matrix()
+	public void null_matrix_passed_expecting_error()
 	{
     	try
     	{
@@ -20,7 +20,7 @@ public class SparseMatrixTest
 	}
     
 	@Test
-	public void transpose_test()
+	public void transpose_valid_matrix_expecting_transposed_matrix()
 	{
 		int[][] matrix0=new int[][]{{0,0,0,1},{0,2,0,0},{0,0,3,0}};
 		SparseMatrix mat1=new SparseMatrix(matrix0);
@@ -29,7 +29,7 @@ public class SparseMatrixTest
 	}
 	
 	@Test
-	public void add_dimention_difference()
+	public void add_two_matrix_with_difference_dimensions_expecting_error()
 	{
 		try
     	{
@@ -45,7 +45,7 @@ public class SparseMatrixTest
 	}
 	
 	@Test
-	public void add_positive()
+	public void add_two_matrix_expecting_addition_matrix()
 	{
 		try
     	{
@@ -63,7 +63,7 @@ public class SparseMatrixTest
 	}
 	
 	@Test
-	public void isSymmetrical_positive()
+	public void isSymmetrical_symmetric_matrix_passed_expecting_true()
 	{
 		try
     	{
@@ -78,7 +78,7 @@ public class SparseMatrixTest
 	}
 	
 	@Test
-	public void isSymmetrical_negative()
+	public void isSymmetrical_passing_non_symmentric_matrix_expected_false()
 	{
 		try
     	{
@@ -93,7 +93,7 @@ public class SparseMatrixTest
 	}
 	
 	@Test
-	public void multiplyMatrix_positive()
+	public void multiplyMatrix_two_same_dimension_matrix_expected_multiplied_matrix()
 	{
 		try
     	{
@@ -110,7 +110,7 @@ public class SparseMatrixTest
 		}
 	}
 	@Test
-	public void multiplyMatrix_negative()
+	public void multiplyMatrix_different_dimensions_matrix_expecting_error()
 	{
 		try
     	{
