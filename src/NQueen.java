@@ -59,37 +59,46 @@ public class NQueen
 	 * @param dimensionOfMatrix
 	 * @return return true if queen is safe to place
 	 */
-	boolean isSafe(int board[][], int col, int row, int dimensionOfMatrix)
+	boolean isSafe(int board[][], int row, int col, int dimensionOfMatrix)
     {
-        int i, j;
-        // Vertical checking for other queens above only
-        for (i = 0; i < row; i++)
-            {
-        		if (board[col][i] == 1)
-        		{
-        			return false;
-        		}
-        	}
-        // Left Diagonal checking for other queens above only
-        for (i = col, j = row; i >= 0 && j >= 0; i--, j--)
-            {
-        		if (board[i][j] == 1)
-        		{
-        			return false;
-        		}
-            }
-        
-        // Right Diagonal checking for other queens above only
-        for (i = col, j = row;i < dimensionOfMatrix && j >= 0 ; i++, j--)
-            {
-        		if (board[i][j] == 1)
-        		{
-        			return false;
-        		}
-            }
- 
-        return true;
+		int hl=row;
+		int ud=row;
+		int ld=row;
+		while(col>=0)
+		{
+			if(board[hl][col]==1)
+			{
+				return false;
+			}
+			
+			if(ud>=0)
+			{
+				if(board[ud][col]==0)
+				{
+					ud--;
+				}
+				else
+				{
+					return false;
+				}
+			}
+			
+			if(ld<dimensionOfMatrix)
+			{
+				if(board[ld][col]==0)
+				{
+					ld++;
+				}
+				else
+				{
+					return false;
+				}
+			}
+			col--;
+		}
+		return true;
     }
+	
 	/**
 	 * @param board 2D array representing position of queens
 	 * @param startRow Row in which queen has to be placed
