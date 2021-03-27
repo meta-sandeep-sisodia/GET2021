@@ -5,7 +5,7 @@ public class NQueenTest
 {
 	NQueen obj;
 	@Before
-	public void initializeClass() throws Exception
+	public void initializeClass() throws AssertionError
 	{
 		obj=new NQueen();
 	}
@@ -14,9 +14,9 @@ public class NQueenTest
 	{
 		try
 		{
-			obj.createMatrix(3);
+			obj.createMatrixAndPlaceQueens(3);
 		}
-		catch(Exception e)
+		catch(AssertionError e)
 		{
 			assertEquals("No Solution exist for N smaller than 3",e.getMessage());
 		}
@@ -27,9 +27,9 @@ public class NQueenTest
 	{
 		try
 		{
-			obj.createMatrix(-3);
+			obj.createMatrixAndPlaceQueens(-3);
 		}
-		catch(Exception e)
+		catch(AssertionError e)
 		{
 			assertEquals("No Solution exist for N smaller than 3",e.getMessage());
 		}
@@ -40,9 +40,9 @@ public class NQueenTest
 	{
 		try
 		{
-			obj.createMatrix(4);
+			obj.createMatrixAndPlaceQueens(4);
 		}
-		catch(Exception e)
+		catch(AssertionError e)
 		{
 			assertEquals("No Solution exist for N smaller than 3",e.getMessage());
 		}
@@ -54,10 +54,10 @@ public class NQueenTest
 	{
 		try
 		{
-			obj.createMatrix(8);
+			obj.createMatrixAndPlaceQueens(8);
 			assert(true);
 		}
-		catch(Exception e)
+		catch(AssertionError e)
 		{
 			assertEquals("No Solution exist for N smaller than 3",e.getMessage());
 		}

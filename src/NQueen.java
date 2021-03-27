@@ -8,7 +8,7 @@ public class NQueen
 		System.out.println("Enter the dimension of matrix : ");
 		int dimensionOfMatrix=scanner.nextInt();
 		scanner.close();
-		int result[][]=obj.createMatrix(dimensionOfMatrix);
+		int result[][]=obj.createMatrixAndPlaceQueens(dimensionOfMatrix);
 		NQueen.printResult(result);
 	}
 	
@@ -17,11 +17,11 @@ public class NQueen
 	 * @return solution of N queen in 2D array
 	 * @throws Exception custom exception for n<=3
 	 */
-	public int[][] createMatrix(int dimensionOfMatrix)throws Exception
+	public int[][] createMatrixAndPlaceQueens(int dimensionOfMatrix)
 	{
 		if(dimensionOfMatrix<=3)
 		{
-			throw new Exception("No Solution exist for N smaller than 3");
+			throw new AssertionError("No Solution exist for N smaller than 3");
 		}
 		int board[][]=new int[dimensionOfMatrix][dimensionOfMatrix];
 		
@@ -32,10 +32,8 @@ public class NQueen
 		}
 		else
 		{
-			System.out.println("No sulution exist for provided dimensions");
-			System.exit(-1);
+			throw new AssertionError("No sulution exist for provided dimensions");
 		}
-		return null;
 	}
 	/**
 	 * @param board

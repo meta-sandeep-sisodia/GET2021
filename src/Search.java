@@ -25,7 +25,7 @@ public class Search {
 		switch(getInput())
 		{
 		case 1:System.out.println("Index of "+to_search+" = "+search.linearSearch(arr, to_search)); break;//It will only work for sorted array
-		case 2:System.out.println("Index of "+to_search+" = "+search.binarySearch(arr,0,arr.length,to_search));break;
+		case 2:System.out.println("Index of "+to_search+" = "+search.binarySearch(arr,to_search));break;
 		default:System.out.println("Invalid choice");
 		}
 	}
