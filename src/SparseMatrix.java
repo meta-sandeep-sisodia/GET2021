@@ -1,4 +1,4 @@
-public class SparseMatrix
+public final class SparseMatrix
 {
     final int sparse[][];
     final int row;
