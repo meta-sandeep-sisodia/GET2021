@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <title>BootStrap Assignment</title>
+      <!-- Bootstrap core CSS -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+      <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+      <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/2.8.94/css/materialdesignicons.min.css">
+   </head>
+   <body>
+      <div class="row">
+         <div class="col-2 sidebar pr-3">
+            <div class="my-4 ml-5 set-annex">
+               <i class="mdi mdi-assistant"></i><strong style="font-size: 20px ">ANNEX</strong>
+            </div>
+            <div class="p-3 ml-3 dashboard set-fixed-sidebar" id="accordion">
+               <p class="text-sm text-muted mb-2" style="font-size: 14px">Main</p>
+               <ul class="list-unstyled">
+                  <li  class="Dashboard">
+                     <a href="#" class="row dash">
+                        <div class="col-2"><img src="images/dashboard.PNG" height="20px"></div>
+                        <div class="col-8">Dashboard</div>
+                        <span class="badge badge-pill mt-1 badge-primary">7</span>
+                     </a>
+                  </li>
+                  <li data-toggle="collapse" data-target="#collapseAdvancedUI">
+                     <a href="#" class="row">
+                        <div class="col-2">
+                           <img src="images/advanced-ui.PNG" height="20px">
+                        </div>
+                        <div class="col-8">Advanced UI</div>
+                        <i class="fa fa-angle-right pt-1"></i>
+                     </a>
+                  </li>
+                  <ul id="collapseAdvancedUI" class="collapse list-unstyled sub-menu">
+                     <li><a href="#" class="text-muted">Highlight</a></li>
+                     <li><a href="#" class="text-muted">Rating</a></li>
+                     <li><a href="#" class="text-muted">Alertify</a></li>
+                     <li><a href="#" class="text-muted">Range Slider</a></li>
+                  </ul>
+                  <li>
+                     <a href="#" class="row">
+                        <div class="col-2">
+                           <img src="images/calender.PNG" height="20px">
+                        </div>
+                        <div class="col-8">Calender</div>
+                     </a>
+                  </li>
+               </ul>
+               <p class="text-sm text-muted mb-2" style="font-size: 14px">Components</p>
+               <ul class="list-unstyled ">
+                  <li id="uiElements" data-toggle="collapse" data-target="#collapseUIElements">
+                     <a href="#" class="row">
+                        <div class="col-2">
+                           <img src="images/ui-elements.PNG" height="20px">
+                        </div>
+                        <div class="col-8">UI Elements</div>
+                        <i class="fa fa-angle-right pt-1"></i>
+                     </a>
+                  </li>
+                  <ul id="collapseUIElements" class="collapse list-unstyled">
+                     <li><a href="#" class="text-muted">Buttons</a></li>
+                     <li><a href="#" class="text-muted">Cards</a></li>
+                     <li><a href="#" class="text-muted">Tabs & Accordions</a></li>
+                     <li><a href="#" class="text-muted">Modals</a></li>
+                     <li><a href="#" class="text-muted">Images</a></li>
+                     <li><a href="#" class="text-muted">Alerts</a></li>
+                     <li><a href="#" class="text-muted">Progress Bars</a></li>
+                     <li><a href="#" class="text-muted">Dropdowns</a></li>
+                     <li><a href="#" class="text-muted">Lightbox</a></li>
+                     <li><a href="#" class="text-muted">Navs</a></li>
+                     <li><a href="#" class="text-muted">Paginations</a></li>
+                  </ul>
+                  <li>
+                     <a href="#" class="row">
+                        <div class="col-2">
+                           <img src="images/forms.PNG" height="20px">
+                        </div>
+                        <div class="col-8">Forms</div>
+                        <span class="badge badge-pill mt-1 badge-primary">8</span>
+                     </a>
+                  </li>
+                  <li id="charts" data-toggle="collapse" data-target="#collapseCharts">
+                     <a href="#" class="row">
+                        <div class="col-2">
+                           <img src="images/charts.PNG" height="20px">
+                        </div>
+                        <div class="col-8">Charts</div>
+                        <i class="fa fa-angle-right pt-1"></i>
+                     </a>
+                  </li>
+                  <ul id="collapseCharts" class="collapse list-unstyled sub-menu">
+                     <li><a href="#" class="text-muted">Morris Chart</a></li>
+                     <li><a href="#" class="text-muted">Chartist Chart</a></li>
+                     <li><a href="#" class="text-muted">Chartjs Chart</a></li>
+                     <li><a href="#" class="text-muted">Flot Chart</a></li>
+                     <li><a href="#" class="text-muted">C3 Chart</a></li>
+                     <li><a href="#" class="text-muted">JQuery Knob Chart</a></li>
+                  </ul>
+                  <li id="icons" data-toggle="collapse" data-target="#collapseIcons">
+                     <a href="#" class="row">
+                        <div class="col-2">
+                           <img src="images/icons.PNG" height="20px">
+                        </div>
+                        <div class="col-8">Icons</div>
+                        <i class="fa fa-angle-right pt-1"></i>
+                     </a>
+                  </li>
+                  <ul id="collapseIcons" class="collapse list-unstyled sub-menu">
+                     <li><a href="#" class="text-muted">Material Design</a></li>
+                     <li><a href="#" class="text-muted">Ion Icons</a></li>
+                     <li><a href="#" class="text-muted">Font Awesome</a></li>
+                     <li><a href="#" class="text-muted">Themify Icons</a></li>
+                     <li><a href="#" class="text-muted">Dripicons</a></li>
+                     <li><a href="#" class="text-muted">Typicons Icons</a></li>
+                  </ul>
+                  <li id="tables" data-toggle="collapse" data-target="#collapseTables">
+                     <a href="#" class="row">
+                        <div class="col-2">
+                           <img src="images/tables.PNG" height="20px">
+                        </div>
+                        <div class="col-8">Tables</div>
+                        <i class="fa fa-angle-right pt-1"></i>
+                     </a>
+                  </li>
+                  <ul id="collapseTables" class="collapse list-unstyled sub-menu">
+                     <li><a href="#" class="text-muted">Basic Tables</a></li>
+                     <li><a href="#" class="text-muted">Data Table</a></li>
+                     <li><a href="#" class="text-muted">Responsive Table</a></li>
+                     <li><a href="#" class="text-muted">Editable Table</a></li>
+                  </ul>
+               </ul>
+               <p class="text-sm text-muted mb-2" style="font-size: 14px">Extra</p>
+               <ul class="list-unstyled ">
+                  <li>
+                     <a href="#" class="row">
+                        <div class="col-2">
+                           <img src="images/maps.PNG" height="20px">
+                        </div>
+                        <div class="col-8">Maps</div>
+                        <span class="badge badge-pill mt-1 badge-danger">2</span>
+                     </a>
+                  </li>
+                  <li id="pages" data-toggle="collapse" data-target="#collapsePages">
+                     <a href="#" class="row">
+                        <div class="col-2">
+                           <img src="images/pages.PNG" height="20px">
+                        </div>
+                        <div class="col-8">Pages</div>
+                        <i class="fa fa-angle-right pt-1"></i>
+                     </a>
+                  </li>
+                  <ul id="collapsePages" class="collapse list-unstyled sub-menu">
+                     <li><a href="#" class="text-muted">Login</a></li>
+                     <li><a href="#" class="text-muted">Register</a></li>
+                     <li><a href="#" class="text-muted">Recover Pssword</a></li>
+                     <li><a href="#" class="text-muted">Lock Screen</a></li>
+                     <li><a href="#" class="text-muted">Blank Page</a></li>
+                     <li><a href="#" class="text-muted">Error 404</a></li>
+                     <li><a href="#" class="text-muted">Error 505</a></li>
+                  </ul>
+               </ul>
+            </div>
+         </div>
+         <div class="col-10" id="main">
+            <div id="header" class="row">
+               <div class="col-3 m-3 pt-2">
+                  <input type="text" class=" px-3 search" placeholder="Search...">
+                  <a class="search-bar">
+                  <i class="fas fa-search"></i>
+                  </a>
+               </div>
+               <div class="col-8 ">
+                  <ul class="list-unstyled d-flex">
+                     <li class="py-2 mt-1 dropdown">
+                        <a href="#" class="nav-link text-dark" id="language" role="button" data-toggle="dropdown">
+                        <span class="text-white px-3">English</span>
+                        <img src="images/flag.PNG" height="20px">
+                        </a>
+                        <div class="dropdown-menu float-right">
+                           <a class="dropdown-item" href="#">Italian
+                           <img src="images/flag.png" class="float-right" height="20px">
+                           </a>
+                           <a class="dropdown-item" href="#">French
+                           <img src="images/flag.png" class="float-right" height="20px">
+                           </a>
+                           <a class="dropdown-item" href="#">Spanish
+                           <img src="images/flag.png" class="float-right" height="20px">
+                           </a>
+                           <a class="dropdown-item" href="#">Russian
+                           <img src="images/flag.png" class="float-right" height="20px">
+                           </a>
+                        </div>
+                     </li>
+                     <li class="py-2 mt-1 dropdown">
+                        <a href="#" class="nav-link text-dark" data-toggle="dropdown">
+                        <i class="far fa-envelope text-white fa-lg"></i>
+                        <span class="badge  badge-danger headerBadge">5</span>
+                        </a>
+                        <div class="dropdown-menu">
+                           <p class="dropdown-item bg-light" href="#">
+                              <strong>Messages</strong>
+                              <span class="badge  badge-danger float-right">745</span>
+                           </p>
+                           <a class="dropdown-item d-flex flex-row" href="#">
+                              <img src="images/person.jpg" class="rounded-circle pr-2" height="40px">
+                              <div>
+                                 <span>Charles M. Jones</span>
+                                 <p><small>Dummy text of printing.</small></p>
+                              </div>
+                           </a>
+                           <a class="dropdown-item d-flex flex-row" href="#">
+                              <img src="images/person.jpg" class="rounded-circle pr-2" height="40px">
+                              <div>
+                                 <span>Thomas J. Mimms</span>
+                                 <p><small>You have 87 unread messages.</small></p>
+                              </div>
+                           </a>
+                           <a class="dropdown-item d-flex flex-row" href="#">
+                              <img src="images/person.jpg" class="rounded-circle pr-2" height="40px">
+                              <div>
+                                 <span>Luis M. Konrad</span>
+                                 <p><small>It is a long established fact that.</small></p>
+                              </div>
+                           </a>
+                           <a class="dropdown-item" href="#">
+                           View More
+                           </a>
+                        </div>
+                     </li>
+                     <li class="py-2 mt-1 dropdown">
+                        <a href="#" class="nav-link text-dark" id="notifications" data-toggle="dropdown">
+                        <i class="far fa-bell text-white fa-lg"></i>
+                        <span class="badge  badge-success headerBadge">23</span>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="notifications">
+                           <p class="dropdown-item bg-light" href="#">
+                              <strong>Notification</strong>
+                              <span class="badge  badge-danger float-right">87</span>
+                           </p>
+                           <a class="dropdown-item d-flex" href="#">
+                              <img src="images/order.PNG" class="rounded-circle pr-2" height="40px">
+                              <div>
+                                 <span>Your order is placed</span>
+                                 <p><small>Dummy text of printing.</small></p>
+                              </div>
+                           </a>
+                           <a class="dropdown-item d-flex" href="#">
+                              <img src="images/message.PNG" class="rounded-circle pr-2" height="40px">
+                              <div>
+                                 <span>New message recieved</span>
+                                 <p><small>You have 87 unread messages.</small></p>
+                              </div>
+                           </a>
+                           <a class="dropdown-item d-flex" href="#">
+                              <img src="images/shipped.PNG" class="rounded-circle pr-2" height="40px">
+                              <div>
+                                 <span>Your item is shipped</span>
+                                 <p><small>It is a long established fact that.</small></p>
+                              </div>
+                           </a>
+                           <a class="dropdown-item" href="#">View More</a>
+                        </div>
+                     </li>
+                     <li class="dropdown">
+                        <a href="#" class="nav-link text-dark" data-toggle="dropdown">
+                        <img src="images/person.jpg" height="40px" class="rounded-circle">
+                        </a>
+                        <div class="dropdown-menu">
+                           <p class="dropdown-item bg-light" href="#">
+                              <strong>Welcome</strong>
+                           </p>
+                           <a class="dropdown-item d-flex" href="#">
+                           <i class="fas fa-md pr-3 fa-user-circle pt-2 text-muted"></i>
+                           <span class="pb-1"> Profile</span>
+                           </a>
+                           <a class="dropdown-item d-flex" href="#">
+                           <i class="fas fa-wallet fa-md pr-3 pt-2 text-muted"></i>
+                           <span class="pb-1"> My Wallet</span>
+                           </a>
+                           <a class="dropdown-item d-flex" href="#">
+                           <i class="fas fa-cog fa-md pr-3 pt-2 text-muted"></i>
+                           <span class="pb-1">Settings</span>
+                           <span class="badge ml-4 mt-2 badge-success">5</span>
+                           </a>
+                           <a class="dropdown-item d-flex border-bottom" href="#">
+                           <i class="fas fa-unlock-alt fa-md pr-3 pt-2 text-muted"></i>
+                           <span class="pb-1">Lock Screen</span>
+                           </a>
+                           <a class="dropdown-item" href="#">
+                           <i class="fas fa-sign-out-alt fa-md pr-3 pt-2 text-muted"></i>
+                           <span class="pb-1">Logout</span>
+                           </a>
+                        </div>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-10 p-3">
+                  <h4>Dashboard</h4>
+               </div>
+               <div class="col-2 py-3 medium">Annex/Dashboard</div>
+         </div>
+      </div>
+   </body>
+</html>
